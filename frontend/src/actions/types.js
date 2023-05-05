@@ -1,0 +1,14 @@
+export const USER_LOGIN = 'USER_LOGIN';
+export const USER_LOGOUT = 'USER_LOGOUT';
+export const USER_SIGNUP = 'USER_SIGNUP';
+export const ERRORS = 'ERRORS';
+export const RESET_ERRORS = 'RESET_ERRORS';
+export const UPDATE_PROFILE = 'UPDATE_PROFILE';
+export const CREATE_GROUP = 'CREATE_GROUP';
+export const GET_GROUPS = 'GET_GROUPS';
+export const GET_GROUPINVITES = 'GET_GROUPINVITES';
+export const GET_BALANCES = 'GET_BALANCES';
+export const RECENT_ACTIVITIES = 'RECENT_ACTIVITIES';
+export const GET_GRPEXPENSES = 'GET_GRPEXPENSES';
+export const GET_GRPSUMMARIES = 'GET_GRPSUMMARIES';
+// export const EMAIL_CHANGE = 'EMAIL_CHANGE';

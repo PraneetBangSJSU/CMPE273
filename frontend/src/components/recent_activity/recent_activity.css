@@ -1,0 +1,33 @@
+.transcations-sec1 {
+  width: '80%';
+}
+
+.Row {
+  display: flex;
+  flex-direction: row;
+}
+
+#page-numbers {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+
+#page-numbers > li {
+  margin-right: 0.5em;
+  color: rgb(0, 39, 39);
+  user-select: none;
+  cursor: pointer;
+  font-weight: bold;
+  margin: 0 4px;
+  padding: 5px 10px;
+  border: 1px solid rgb(0, 0, 0);
+  display: inline-block;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+.selected {
+  background-color: #51e7cc;
+  color: #fb7a00;
+}

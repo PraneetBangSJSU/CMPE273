@@ -1,0 +1,331 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders 1`] = `
+Array [
+  <div>
+    <div>
+      <nav
+        className="navbar-default navbar navbar-expand navbar-light"
+      >
+        <a
+          className="Navbar-Brand navbar-brand"
+          href="/"
+          variant="light"
+        >
+          <img
+            alt="icon"
+            className="icon"
+            src="https://i.pinimg.com/originals/bc/c2/85/bcc2856a837b3894332efece359278c7.jpg"
+          />
+          <span
+            className="NavItem"
+          >
+            CoinCompass
+          </span>
+        </a>
+        <div
+          aria-expanded={null}
+          className="justify-content-end navbar-collapse collapse"
+        >
+          <div
+            className="navbar-nav"
+            onKeyDown={[Function]}
+          >
+            <ul
+              className="nav navbar-nav navbar-right"
+            >
+              <li>
+                <button
+                  className="login-default btn btn-primary"
+                  disabled={false}
+                  type="button"
+                >
+                  <a
+                    href="/login"
+                    onClick={[Function]}
+                  >
+                    Login 
+                  </a>
+                </button>
+                or
+                 
+                <button
+                  className="Signup-default btn btn-primary"
+                  disabled={false}
+                  type="button"
+                >
+                  <a
+                    href="/signup"
+                    onClick={[Function]}
+                  >
+                    Sign Up
+                  </a>
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <div
+      className="grouppage-flex"
+    >
+      <div>
+        <div
+          className="sidebar"
+        >
+          <div
+            className="flex-column nav"
+            onKeyDown={[Function]}
+          >
+            <div
+              className="sidebar-wrapper"
+            >
+              <ul
+                className="navlist"
+              >
+                <li
+                  className="nav-item"
+                >
+                  <li
+                    className="nav-item1"
+                  >
+                    <a
+                      aria-current={null}
+                      className="nav-link1"
+                      href="/dashboard"
+                      onClick={[Function]}
+                      style={
+                        Object {
+                          "color": "inherit",
+                          "textDecoration": "none",
+                        }
+                      }
+                    />
+                  </li>
+                   
+                  <hr />
+                  <a
+                    aria-current={null}
+                    className="nav-link1"
+                    href="/dashboard"
+                    onClick={[Function]}
+                  >
+                    Dashboard
+                  </a>
+                </li>
+                <hr />
+                <li
+                  className="nav-item1"
+                >
+                  <a
+                    aria-current={null}
+                    className="nav-link1"
+                    href="/recentactivity"
+                    onClick={[Function]}
+                  >
+                    Recent Acitivity
+                  </a>
+                </li>
+                <hr />
+                <li
+                  className="nav-item1"
+                >
+                  <a
+                    aria-current={null}
+                    className="nav-link1"
+                    href="/profile"
+                    onClick={[Function]}
+                  >
+                    My Profile
+                  </a>
+                </li>
+                <hr />
+                <li
+                  className="nav-item1"
+                >
+                  <a
+                    aria-current={null}
+                    className="nav-link1"
+                    href="/mygroups"
+                    onClick={[Function]}
+                  >
+                    My Groups
+                  </a>
+                </li>
+                <li>
+                  <a
+                    aria-current={null}
+                    className="nav-link2"
+                    href="/createnewgroup"
+                    onClick={[Function]}
+                  >
+                    + Add
+                  </a>
+                </li>
+                 
+                <hr />
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="grouppage-box"
+      style={
+        Object {
+          "overflowY": "auto",
+        }
+      }
+    >
+      <section
+        className="grouppage-heading-buttons"
+      >
+        <section
+          className="grouppage-heading"
+        >
+          <h1>
+            Group Name 
+            testgroup
+          </h1>
+          <ul
+            className="grouppage-button"
+          >
+            <li>
+              <button
+                className="login-default btn btn-primary"
+                disabled={false}
+                onClick={[Function]}
+                type="button"
+              >
+                Add an Expense
+              </button>
+               
+              <button
+                className="Signup-default btn btn-primary"
+                data-testid="leavegroup"
+                disabled={false}
+                onClick={[Function]}
+                type="button"
+              >
+                Leave Group
+              </button>
+            </li>
+          </ul>
+        </section>
+        <section
+          className="grouppage-center-sec"
+          style={
+            Object {
+              "overflowY": "auto",
+            }
+          }
+        >
+          <div
+            className="grouppage-center-section-block"
+          />
+          <div
+            className="grouppage-center-section-block"
+            style={
+              Object {
+                "overflowY": "auto",
+              }
+            }
+          >
+            <br />
+            <div
+              className="grouppage-block-border"
+            >
+              <h7>
+                No transactions to display!
+              </h7>
+            </div>
+          </div>
+        </section>
+      </section>
+    </div>
+    <div
+      className="grouppage-right"
+    />
+    <div
+      className="title1"
+    >
+      <div>
+         
+        <h2>
+          Groups Summary
+        </h2>
+        <ul
+          className="group-expenses-group"
+        >
+          <li>
+            <p>
+              <span>
+                 
+                <b>
+                   
+                </b>
+                 owes
+                 
+              </span>
+              <b
+                style={
+                  Object {
+                    "color": "#ff652f",
+                    "text-weight": "bold",
+                  }
+                }
+              >
+                 
+              </b>
+              in Total
+               
+            </p>
+          </li>
+        </ul>
+        <h2>
+           Details :
+        </h2>
+        <ul
+          className="group-expenses-group"
+        >
+          <li>
+            <p
+              style={
+                Object {
+                  "width": "100px",
+                }
+              }
+            >
+               owes 
+               
+              <b
+                style={
+                  Object {
+                    "color": "#ff652f",
+                    "text-weight": "bold",
+                  }
+                }
+              />
+            </p>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <p
+      className="errmsg"
+      style={
+        Object {
+          "color": "maroon",
+        }
+      }
+    >
+       
+      
+       
+    </p>
+  </div>,
+  " ",
+]
+`;
