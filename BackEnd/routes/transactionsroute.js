@@ -33,8 +33,6 @@ const createcomments = async (commentBy, trancid, comment) => {
 };
 
 router.post('/addabill', passport.authenticate('jwt', { session: false }), async (req, res) => {
-  const userid = req.user._id;
-  const req1 = req.body;
   // console.log('inside addadbill original route ', senddata);
   // console.log('inside addadbill original route ', req.body);
 
@@ -66,26 +64,19 @@ router.post('/addabill', passport.authenticate('jwt', { session: false }), async
 
       const upadtedblnc = amt / noofmem;
       console.log(' after groups update', grpid, noofmem, upadtedblnc);
-      await createtransactions(_id, grpid, amt, descript);
-      var trnc_id = [];
-      await Transactions.find({ groupid: grpid }, { _id: 1 }, async (err, result) => {
+const newtrnc = await createtransactions(_id, grpid, amt, descript);
+      const trncid = newtrnc._id;
+      Transactions.find({ groupid: grpid }, async (err, result) => {
         if (err) {
-          return res.json({
-            success: false,
-            errors: {
-              title: 'cannot find transactions',
-              detail: err.message,
-              error: err,
-            },
-          });
+          callback(err, 'error');
         }
-        trnc_id = result;
-        console.log('trancation created ', trnc_id);
-        await Groups.findOneAndUpdate(
+
+        // console.log('trancation created ', trncid);
+        Groups.findOneAndUpdate(
           { groupid: grpid },
           {
-            $set: {
-              transactions: trnc_id,
+            $push: {
+              transactions: trncid,
             },
           },
           {
@@ -98,8 +89,10 @@ router.post('/addabill', passport.authenticate('jwt', { session: false }), async
               { payer: _id, groupid: grpid, payeeInvite: 1, payerInvite: 1 },
               {
                 $set: {
-                  balance: upadtedblnc,
                   settled: 1,
+                },
+                $inc: {
+                  balance: upadtedblnc,
                 },
               },
               { multi: true }
@@ -190,9 +183,9 @@ router.post('/addcomment', passport.authenticate('jwt', { session: false }), asy
   const trsncid = req.body.trsncid;
   const comment = req.body.comment;
 
-  await createcomments(_id, trsncid, comment);
+  await createcomments(userid, trsncid, comment);
   await Comments.findOne(
-    { commentBy: _id, trancid: trsncid, comment: comment },
+    { commentBy: userid, trancid: trsncid, comment: comment },
     { _id: 1 },
     async (err, result) => {
       if (err) {
