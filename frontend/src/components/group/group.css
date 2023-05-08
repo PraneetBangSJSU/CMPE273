@@ -4,7 +4,7 @@
   border-left: 1px solid rgb(177, 177, 177);
   border-right: 1px solid rgb(177, 177, 177);
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-  width: 880px;
+  width: 780px;
   height: 880px;
 }
 .grouppage-heading {
@@ -109,6 +109,7 @@
   overflow-y: auto;
   max-height: 880px;
   white-space: nowrap;
+  padding-left: 20px;
 }
 .grouppage-right h2 {
   padding: 20px;
@@ -127,12 +128,12 @@
   color: black;
   height: 300px;
   width: 700px;
-  float: right;
   display: flex;
   background-color: rgb(228, 228, 228);
   border-radius: 4px;
   margin: 20px;
   flex: auto;
+  padding: 20px;
 }
 
 .group-expenses-group11 {

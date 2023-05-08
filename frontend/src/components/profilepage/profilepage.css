@@ -6,12 +6,20 @@
     height: auto;
 }
 
-.profilepage-block{
-        flex:auto;
-        width: 1200px;
-        height:800px;
-        padding-left: 300px; 
-        padding-top: 100px ;
+.profilepage-flex {
+    width: 1280px;
+    min-width: 1000px;
+    margin: 0 auto;
+  }
+.profilepage-box {
+    flex: auto;
+    float: left;
+    border-left: 1px solid rgb(177, 177, 177);
+    border-right: 1px solid rgb(177, 177, 177);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    width: 1080px;
+    height: 100vh;
+    padding: 20px;
 }
 
 input[type="text"] {

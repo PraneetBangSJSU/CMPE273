@@ -202,7 +202,7 @@ class Mygroupscl extends Component {
               <h1>My Groups Summary</h1>
               <ul className="button-right">
                 <li>
-                  <Button className="Signup-default">
+                  <Button className="Signup-default" href="/createnewgroup">
                     <Link to="/createnewgroup">Create Group</Link>
                   </Button>
                 </li>

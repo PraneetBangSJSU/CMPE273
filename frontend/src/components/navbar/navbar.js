@@ -64,11 +64,6 @@ class Navheadercl extends Component {
       isloggedin = (
         <ul className="nav navbar-nav navbar-right">
           <li>
-            <Button className="Home-default" variant="default">
-              <Link to="/dashboard"> Home </Link>
-            </Button>
-          </li>
-          <li>
             <Image
               src={profilepic}
               className="avatar"
@@ -114,7 +109,11 @@ class Navheadercl extends Component {
     return (
       <div>
         <Navbar className="navbar-default">
-          <Navbar.Brand className="Navbar-Brand" variant="light" href="/">
+          <Navbar.Brand
+            className="Navbar-Brand"
+            variant="light"
+            href="/dashboard"
+          >
             <img
               src="https://i.pinimg.com/originals/bc/c2/85/bcc2856a837b3894332efece359278c7.jpg"
               className="icon"

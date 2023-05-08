@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Login from './Login/Login';
 import Signup from './Signup/Signup';
-import LandingPage from './LandingPage/LandingPage';
 import Dashboard from './dashboard/dashboard';
 import Createnewgroup from './create_new_group/create_new_group';
 import Profilepage from './profilepage/profile_page';
@@ -21,7 +20,7 @@ class Main extends Component {
     return (
       <div>
         <Switch>
-          <Route exact path="/" component={LandingPage} />
+          <Route exact path="/" component={Login} />
           <Route path="/signup" component={Signup} />
           <Route path="/login" component={Login} />
           <Route path="/dashboard" component={Dashboard} />

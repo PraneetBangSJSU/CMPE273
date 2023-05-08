@@ -11,6 +11,7 @@ import { reset } from '../../actions/loginAction';
 import { updateProfile } from '../../actions/updateProfileAction';
 // import FormData from 'form-data';
 import Navheader from '../navbar/navbar';
+import Sidebarcomp from '../navbar/sidebar';
 import backendServer from '../../webConfig';
 
 import '../navbar/navbar.css';
@@ -267,203 +268,209 @@ class Profilepagecl extends Component {
       <div>
         {redirectVar}
         <Navheader />
-        <div className="profilepage-block">
-          <h2> Your account </h2>
-          <section>
-            <div className="avatar-div">
-              <Image src={profilepic} className="avatar1" alt="profile pic" />
-              <br />
-              <label htmlFor="profile_avatar">
-                Change your avatar <br />
-                <input
-                  type="file"
-                  name="profile_avatar"
-                  id="profile_avatar"
-                  onChange={this.profilephtochangeHandler}
-                />
-              </label>
-            </div>
-          </section>
+        <div className="profilepage-flex">
+          <Sidebarcomp />
+          <div className="profilepage-box">
+            <h2> Your account </h2>
+            <section>
+              <div className="avatar-div">
+                <Image src={profilepic} className="avatar1" alt="profile pic" />
+                <br />
+                <label htmlFor="profile_avatar">
+                  Change your avatar <br />
+                  <input
+                    type="file"
+                    name="profile_avatar"
+                    id="profile_avatar"
+                    onChange={this.profilephtochangeHandler}
+                  />
+                </label>
+              </div>
+            </section>
 
-          <section>
-            <Form
-              ref={this.profileform}
-              id="profileform"
-              className="profileform"
-            >
-              <section className="center-block">
-                <div className="basic_div">
-                  <label htmlFor="username">
-                    Your name <br />
-                    <input
-                      type="text"
-                      name="username"
-                      id="username"
-                      defaultValue={username}
-                      onChange={this.usrchangeHandler}
-                    />
-                  </label>
+            <section>
+              <Form
+                ref={this.profileform}
+                id="profileform"
+                className="profileform"
+              >
+                <section className="center-block">
+                  <div className="basic_div">
+                    <label htmlFor="username">
+                      Your name <br />
+                      <input
+                        type="text"
+                        name="username"
+                        id="username"
+                        defaultValue={username}
+                        onChange={this.usrchangeHandler}
+                      />
+                    </label>
+                    {usernameerrors && (
+                      <span className="errmsg" style={{ color: 'maroon' }}>
+                        {' '}
+                        {usernameerrors}{' '}
+                      </span>
+                    )}
+                    <br />
+                    <br />
+                    <label htmlFor="email">
+                      Your email address <br />
+                      <input
+                        type="email"
+                        name="email"
+                        id="email"
+                        defaultValue={email}
+                        onChange={this.emailChangeHandler}
+                      />
+                    </label>
+
+                    <br />
+                    <br />
+                    <label htmlFor="phonenumber">
+                      Your phone number <br />
+                      <input
+                        type="text"
+                        name="phonenumber"
+                        id="phonenumber"
+                        defaultValue={phonenumber}
+                        onChange={this.phonenumberChangeHandler}
+                      />
+                    </label>
+                  </div>
                   {usernameerrors && (
                     <span className="errmsg" style={{ color: 'maroon' }}>
                       {' '}
                       {usernameerrors}{' '}
                     </span>
                   )}
-                  <br />
-                  <br />
-                  <label htmlFor="email">
-                    Your email address <br />
-                    <input
-                      type="email"
-                      name="email"
-                      id="email"
-                      defaultValue={email}
-                      onChange={this.emailChangeHandler}
-                    />
-                  </label>
+                  {emailerrors && (
+                    <span className="errmsg" style={{ color: 'maroon' }}>
+                      {' '}
+                      {emailerrors}{' '}
+                    </span>
+                  )}
+                  {phoneerrors && (
+                    <span className="errmsg" style={{ color: 'maroon' }}>
+                      {' '}
+                      {phoneerrors}{' '}
+                    </span>
+                  )}
+                </section>
 
-                  <br />
-                  <br />
-                  <label htmlFor="phonenumber">
-                    Your phone number <br />
-                    <input
-                      type="text"
-                      name="phonenumber"
-                      id="phonenumber"
-                      defaultValue={phonenumber}
-                      onChange={this.phonenumberChangeHandler}
-                    />
-                  </label>
-                </div>
-                {usernameerrors && (
-                  <span className="errmsg" style={{ color: 'maroon' }}>
+                <section className="right-block">
+                  <div className="default_div">
+                    <Form.Group controlId="defaultcurrency">
+                      <Form.Label>Your default currency</Form.Label>
+                      <Form.Control
+                        as="select"
+                        value={defaultcurrency}
+                        placeholder={defaultcurrency}
+                        onChange={this.defaultcurrencychangeHandler}
+                      >
+                        <option value="BHD (BD)">BHD (BD)</option>
+                        <option value="CAD (C$)">CAD (C$)</option>
+                        <option value="EUR (€)">EUR (€)</option>
+                        <option value="GBP (£)">GBP (£)</option>
+                        <option value="KWD (KWD)">KWD (KWD)</option>
+                        <option value="USD ($)">USD ($)</option>
+                      </Form.Control>
+                    </Form.Group>
+                    <br />
+                    <Form.Group controlId="timezone">
+                      <Form.Label>TimeZone</Form.Label>
+                      <Form.Control
+                        as="select"
+                        value={timezone}
+                        onChange={this.timezonechangeHandler}
+                      >
+                        <option>(GMT -12:00) Eniwetok, Kwajalein</option>
+                        <option>(GMT -11:00) Midway Island, Samoa</option>
+                        <option>(GMT -10:00) Hawaii</option>
+                        <option>(GMT -9:00) Alaska</option>
+                        <option>(GMT -8:00) Pacific Time (US & Canada)</option>
+                        <option>(GMT -7:00) Mountain Time (US & Canada)</option>
+                        <option>
+                          (GMT -6:00) Central Time (US & Canada), Mexico City
+                        </option>
+                        <option>
+                          (GMT -5:00) Eastern Time (US & Canada), Bogota, Lima
+                        </option>
+                        <option>
+                          (GMT -4:00) Atlantic Time (Canada), Caracas, La Paz
+                        </option>
+                        <option>
+                          (GMT -3:00) Brazil, Buenos Aires, Georgetown
+                        </option>
+                        <option>(GMT -2:00) Mid-Atlantic</option>
+                        <option>(GMT -1:00) Azores, Cape Verde Islands</option>
+                        <option>
+                          (GMT) Western Europe Time, London, Lisbon, Casablanca
+                        </option>
+                        <option>
+                          (GMT +1:00) Brussels, Copenhagen, Madrid, Paris
+                        </option>
+                        <option>(GMT +2:00) Kaliningrad, South Africa</option>
+                        <option>
+                          (GMT +3:00) Baghdad, Riyadh, Moscow, St. Petersburg
+                        </option>
+                        <option>
+                          (GMT +4:00) Abu Dhabi, Muscat, Baku, Tbilisi
+                        </option>
+                        <option>
+                          (GMT +5:30) Bombay, Calcutta, Madras, New Delhi
+                        </option>
+                        <option>(GMT +6:00) Almaty, Dhaka, Colombo</option>
+                        <option>(GMT +7:00) Bangkok, Hanoi, Jakarta</option>
+                        <option>
+                          (GMT +8:00) Beijing, Perth, Singapore, Hong Kong
+                        </option>
+                        <option>
+                          (GMT +9:00) Tokyo, Seoul, Osaka, Sapporo, Yakutsk
+                        </option>
+                        <option>
+                          (GMT +10:00) Eastern Australia, Guam, Vladivostok
+                        </option>
+                        <option>
+                          (GMT +11:00) Magadan, Solomon Islands, New Caledonia
+                        </option>
+                        <option>
+                          (GMT +12:00) Auckland, Wellington, Fiji, Kamchatka
+                        </option>
+                      </Form.Control>
+                    </Form.Group>
+                    <br />
+                    <Form.Group controlId="language">
+                      <Form.Label>Language</Form.Label>
+                      <Form.Control
+                        as="select"
+                        value={language}
+                        onChange={this.languagechangeHandler}
+                      >
+                        <option>English</option>
+                        <option>Deutsch</option>
+                        <option>Italiano</option>
+                        <option>Nederlands</option>
+                        <option>Svenska</option>
+                      </Form.Control>
+                    </Form.Group>
+                  </div>
+                  <p className="errmsg" style={{ color: 'maroon' }}>
                     {' '}
-                    {usernameerrors}{' '}
-                  </span>
-                )}
-                {emailerrors && (
-                  <span className="errmsg" style={{ color: 'maroon' }}>
-                    {' '}
-                    {emailerrors}{' '}
-                  </span>
-                )}
-                {phoneerrors && (
-                  <span className="errmsg" style={{ color: 'maroon' }}>
-                    {' '}
-                    {phoneerrors}{' '}
-                  </span>
-                )}
-              </section>
-
-              <section className="right-block">
-                <div className="default_div">
-                  <Form.Group controlId="defaultcurrency">
-                    <Form.Label>Your default currency</Form.Label>
-                    <Form.Control
-                      as="select"
-                      value={defaultcurrency}
-                      placeholder={defaultcurrency}
-                      onChange={this.defaultcurrencychangeHandler}
+                    {errors}{' '}
+                  </p>
+                  <div className="savebtn" data-testid="Saveupdates">
+                    <Button
+                      className="Signup-default"
+                      onClick={this.submitsave}
                     >
-                      <option value="BHD (BD)">BHD (BD)</option>
-                      <option value="CAD (C$)">CAD (C$)</option>
-                      <option value="EUR (€)">EUR (€)</option>
-                      <option value="GBP (£)">GBP (£)</option>
-                      <option value="KWD (KWD)">KWD (KWD)</option>
-                      <option value="USD ($)">USD ($)</option>
-                    </Form.Control>
-                  </Form.Group>
-                  <br />
-                  <Form.Group controlId="timezone">
-                    <Form.Label>TimeZone</Form.Label>
-                    <Form.Control
-                      as="select"
-                      value={timezone}
-                      onChange={this.timezonechangeHandler}
-                    >
-                      <option>(GMT -12:00) Eniwetok, Kwajalein</option>
-                      <option>(GMT -11:00) Midway Island, Samoa</option>
-                      <option>(GMT -10:00) Hawaii</option>
-                      <option>(GMT -9:00) Alaska</option>
-                      <option>(GMT -8:00) Pacific Time (US & Canada)</option>
-                      <option>(GMT -7:00) Mountain Time (US & Canada)</option>
-                      <option>
-                        (GMT -6:00) Central Time (US & Canada), Mexico City
-                      </option>
-                      <option>
-                        (GMT -5:00) Eastern Time (US & Canada), Bogota, Lima
-                      </option>
-                      <option>
-                        (GMT -4:00) Atlantic Time (Canada), Caracas, La Paz
-                      </option>
-                      <option>
-                        (GMT -3:00) Brazil, Buenos Aires, Georgetown
-                      </option>
-                      <option>(GMT -2:00) Mid-Atlantic</option>
-                      <option>(GMT -1:00) Azores, Cape Verde Islands</option>
-                      <option>
-                        (GMT) Western Europe Time, London, Lisbon, Casablanca
-                      </option>
-                      <option>
-                        (GMT +1:00) Brussels, Copenhagen, Madrid, Paris
-                      </option>
-                      <option>(GMT +2:00) Kaliningrad, South Africa</option>
-                      <option>
-                        (GMT +3:00) Baghdad, Riyadh, Moscow, St. Petersburg
-                      </option>
-                      <option>
-                        (GMT +4:00) Abu Dhabi, Muscat, Baku, Tbilisi
-                      </option>
-                      <option>
-                        (GMT +5:30) Bombay, Calcutta, Madras, New Delhi
-                      </option>
-                      <option>(GMT +6:00) Almaty, Dhaka, Colombo</option>
-                      <option>(GMT +7:00) Bangkok, Hanoi, Jakarta</option>
-                      <option>
-                        (GMT +8:00) Beijing, Perth, Singapore, Hong Kong
-                      </option>
-                      <option>
-                        (GMT +9:00) Tokyo, Seoul, Osaka, Sapporo, Yakutsk
-                      </option>
-                      <option>
-                        (GMT +10:00) Eastern Australia, Guam, Vladivostok
-                      </option>
-                      <option>
-                        (GMT +11:00) Magadan, Solomon Islands, New Caledonia
-                      </option>
-                      <option>
-                        (GMT +12:00) Auckland, Wellington, Fiji, Kamchatka
-                      </option>
-                    </Form.Control>
-                  </Form.Group>
-                  <br />
-                  <Form.Group controlId="language">
-                    <Form.Label>Language</Form.Label>
-                    <Form.Control
-                      as="select"
-                      value={language}
-                      onChange={this.languagechangeHandler}
-                    >
-                      <option>English</option>
-                      <option>Deutsch</option>
-                      <option>Italiano</option>
-                      <option>Nederlands</option>
-                      <option>Svenska</option>
-                    </Form.Control>
-                  </Form.Group>
-                </div>
-                <p className="errmsg" style={{ color: 'maroon' }}>
-                  {' '}
-                  {errors}{' '}
-                </p>
-                <div className="savebtn" data-testid="Saveupdates">
-                  <Button className="Signup-default" onClick={this.submitsave}>
-                    Save
-                  </Button>
-                </div>
-              </section>
-            </Form>
-          </section>
+                      Save
+                    </Button>
+                  </div>
+                </section>
+              </Form>
+            </section>
+          </div>
         </div>
       </div>
     );

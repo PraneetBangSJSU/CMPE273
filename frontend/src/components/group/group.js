@@ -357,7 +357,7 @@ class Groupdetailscl extends Component {
                         <Form.Control
                           type="number"
                           onChange={this.amtchangehandler}
-                          value={amount}
+                          value={amount === 0 ? '' : amount}
                           placeholder="Amount"
                         />
                       </Form.Group>
@@ -661,12 +661,12 @@ class Groupdetailscl extends Component {
 
         <div className="grouppage-right" />
         <div className="title1">
+          <h2>Groups Summary</h2>
           {checkifsummiesnull ? (
             <h7>NONE HAVE ACCEPTED THE INVITES TO THE GROUP!</h7>
           ) : (
             <div>
               {' '}
-              <h2>Groups Summary</h2>
               {summaries.map((expense) => (
                 <ul className="group-expenses-group">
                   <li>

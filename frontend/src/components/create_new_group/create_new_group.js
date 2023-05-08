@@ -12,6 +12,7 @@ import Navheader from '../navbar/navbar';
 import { createGroup, reset } from '../../actions/creategroupAction';
 import '../navbar/navbar.css';
 import backendServer from '../../webConfig';
+import Sidebarcomp from '../navbar/sidebar';
 
 class Createnewgroupcl extends Component {
   constructor(props) {
@@ -214,7 +215,10 @@ class Createnewgroupcl extends Component {
         {redirectVar}
         <Navheader />
 
-        <div className="profilepage-block">
+        <div className="creategrouppage-block">
+          <div>
+            <Sidebarcomp />
+          </div>
           <section
             className=" createpage-blocksec"
             style={{
@@ -249,6 +253,7 @@ class Createnewgroupcl extends Component {
                 width: '350px',
                 'padding-left': '20px',
                 'padding-top': '1px',
+                'margin-right': '300px',
               }}
             >
               <Form ref={this.groupform} id="groupform" className="groupform">
